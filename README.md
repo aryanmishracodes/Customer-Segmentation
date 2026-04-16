@@ -91,3 +91,7 @@ Required columns:
 - Centroids shown as star markers
 - Silhouette score displayed
 - Dataset preview table
+
+# Customer Segmentation Web App
+
+🔗 Live Demo: https://customer-segmentation-tau.vercel.app/
