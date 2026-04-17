@@ -36,7 +36,7 @@ export default function DashboardPage({ uploadData, uploadedFile, clusterData, s
   const [k, setK] = useState(5);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
+const BASE_URL = "https://customer-segmentation-vgb3.onrender.com";
   useEffect(() => {
     runClustering();
     // eslint-disable-next-line
@@ -50,7 +50,7 @@ export default function DashboardPage({ uploadData, uploadedFile, clusterData, s
       const formData = new FormData();
       formData.append('file', uploadedFile);
       formData.append('k', kToUse);
-      const res = await axios.post('http://localhost:5000/cluster', formData);
+      const res = await axios.post(`${BASE_URL}/cluster`, formData);
       setClusterData(res.data);
     } catch (err) {
       setError(err.response?.data?.error || 'Clustering failed.');

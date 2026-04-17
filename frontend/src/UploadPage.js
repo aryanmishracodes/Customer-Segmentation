@@ -24,7 +24,7 @@ export default function UploadPage({ onSuccess }) {
     setDragging(false);
     handleFile(e.dataTransfer.files[0]);
   };
-
+const BASE_URL = "https://customer-segmentation-vgb3.onrender.com";
   const handleUpload = async () => {
     if (!file) { setError('Please select a CSV file first.'); return; }
     setLoading(true);
@@ -32,7 +32,7 @@ export default function UploadPage({ onSuccess }) {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      const res = await axios.post('http://localhost:5000/upload', formData);
+      const res = await axios.post(`${BASE_URL}/upload`, formData);
       onSuccess(res.data, file);
     } catch (err) {
       setError(err.response?.data?.error || 'Upload failed. Is the backend running?');
